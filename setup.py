@@ -4,7 +4,22 @@
 import sys
 
 from setuptools import setup
-from torch.utils import cpp_extension
+
+try:
+    from torch.utils import cpp_extension
+except ImportError:
+    print(
+        "\n" + "="*70 + "\n"
+        "ERROR: PyTorch is not installed!\n\n"
+        "YOLOX requires PyTorch to be installed before building.\n"
+        "Please install PyTorch first based on your system configuration:\n\n"
+        "  For CUDA 11.8:   pip install torch>=2.2.1 torchvision>=0.17.1\n"
+        "  For CUDA 12.1:   pip install torch>=2.2.1 torchvision>=0.17.1\n"
+        "  For CPU only:    pip install torch>=2.2.1 torchvision>=0.17.1 --index-url https://download.pytorch.org/whl/cpu\n\n"
+        "Visit https://pytorch.org/get-started/locally/ for more options.\n"
+        "="*70 + "\n"
+    )
+    sys.exit(1)
 
 
 def get_ext_modules():

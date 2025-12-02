@@ -66,6 +66,38 @@ This repo is an implementation of PyTorch version YOLOX, there is also a [MegEng
 <details>
 <summary>Installation</summary>
 
+**Prerequisites**
+
+YOLOX requires PyTorch 2.2.1 or higher and torchvision 0.17.1 or higher. Install PyTorch first based on your system configuration:
+
+**Using pip:**
+```shell
+# For CUDA 11.8
+pip3 install torch>=2.2.1 torchvision>=0.17.1
+
+# For CUDA 12.1
+pip3 install torch>=2.2.1 torchvision>=0.17.1
+
+# For CPU only
+pip3 install torch>=2.2.1 torchvision>=0.17.1 --index-url https://download.pytorch.org/whl/cpu
+```
+
+**Using uv:**
+```shell
+# For CUDA 12.1 (default)
+uv pip install torch torchvision
+
+# For CUDA 11.8
+uv pip install torch torchvision --index-url https://download.pytorch.org/whl/cu118
+
+# For CPU only
+uv pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+```
+
+For other CUDA versions or more installation options, visit [PyTorch's official website](https://pytorch.org/get-started/locally/) or the [uv PyTorch integration guide](https://docs.astral.sh/uv/guides/integration/pytorch/).
+
+**Install YOLOX**
+
 Step1. Install YOLOX from source.
 ```shell
 git clone git@github.com:Megvii-BaseDetection/YOLOX.git
